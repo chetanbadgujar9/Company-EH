@@ -1,0 +1,13 @@
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.btn-primary{
+    margin-top: 25px;
+}
+.danger{
+    color: red;
+}
+.success{
+    color:green;
+}

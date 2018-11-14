@@ -1,0 +1,114 @@
+<div class="row" style="margin-top: 30px;">
+  <div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="panel panel-teal" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+      <div class="panel-heading">
+        NgModel Directive
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="form-group">
+              <label for="name">Username
+              </label>
+              <input type="text" placeholder="Username" name="firstname" [(ngModel)]="username" class="form-control" (blur)="onBlur()"/> 
+              {{username}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 30px;">
+  <div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="panel panel-teal" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+      <div class="panel-heading">
+        Click Event
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="form-group">
+              <label for="name">Name
+              </label>
+              <input type="text" placeholder="Username" name="name" [(ngModel)]="Name" class="form-control" /> 
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <button class="btn btn-primary" (click)="onClick()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 30px;">
+  <div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="panel panel-teal" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+      <div class="panel-heading">
+        Pattern Directive
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="form-group">
+              <label for="name">Mobile
+              </label>
+              <input type="text" placeholder="Mobile" name="mobile" [(ngModel)]="Mobile" [pattern]="mobPattern" #mob="ngModel" class="form-control" /> 
+              <div class="danger" *ngIf="mob.errors?.pattern"> 
+                 Mobile not valid.
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 30px;">
+  <div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="panel panel-teal" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+      <div class="panel-heading">
+        Hidden directive
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="form-group">
+              <label for="name" [hidden]="showElem">Eternus Solutions 
+              </label>
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <button class="btn btn-success" (click)="onHiddenClick()">{{showElem ? 'Show' : 'Hide'}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 30px;">
+  <div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="panel panel-teal" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+      <div class="panel-heading">
+        ngClass directive
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <div class="form-group">
+              <label for="name" [ngClass]="showElem ? 'danger' : 'success'">Eternus Solutions 
+              </label>
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-lg-6">
+            <button class="btn btn-success" (click)="onHiddenClick()">{{showElem ? 'Red' : 'Green'}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

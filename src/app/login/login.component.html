@@ -1,0 +1,27 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" formControlName="Username" placeholder="Enter Username" />
+        <div class="danger" *ngIf="this.loginForm.get('Username').hasError('required') && loginErr">Please Enter Username</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="Password" placeholder="Enter Password" />
+        <div class="danger" *ngIf="this.loginForm.get('Password').hasError('required') && loginErr">Please Enter Password </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</form>

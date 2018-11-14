@@ -1,0 +1,54 @@
+<div class="page-content">
+    <ol class="breadcrumb">
+        <li>
+            <h5 style="color:black;font-size: 15px;font-weight: 700;">Contact List</h5>
+        </li>
+        <li>
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString" name="searchTxt"/>
+        </li>
+        <li class="pull-right">
+            <a routerLink="add-contact" class="btn btn-warning btn-sm">Add Contact</a>
+        </li>
+    </ol>
+    <div class="container-fluid">
+        <div class="row">
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                <tbody *ngIf="ContactList.length > 0">
+                    <tr *ngFor="let contact of ContactList | searchPipe: searchString">
+                        <td>{{contact.FirstName}}</td>
+                        <td>{{contact.LastName}}</td>
+                        <td>{{contact.Email}}</td>
+                        <td>{{contact.PhoneNumber}}</td>
+                        <td>
+                            <span class="label label-success" *ngIf="contact.Status === 'Active'">Active</span>
+                            <span class="label label-danger" *ngIf="contact.Status === 'Inactive'">Inactive</span>
+                        </td>
+                        <td>
+                            <button class="btn btn-info btn-circle" pTooltip="Click to update contact" tooltipPosition="left" (click)="onUpdateRequest(contact)">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn btn-danger btn-circle" pTooltip="Click to delete contact" tooltipPosition="left" (click)="onDeleteRequest(contact)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="ContactList.length === 0">
+                    No Record Found
+                </tbody>
+            </table>
+        </div>
+        <p-confirmDialog header="Confirmation" icon="fa fa-question-circle"></p-confirmDialog>
+    </div>
+</div>
+<div class="view-side-form">
+    <router-outlet></router-outlet>
+</div>
