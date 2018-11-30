@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params, ParamMap } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { MessageService } from '../../shared/services/message.service';
@@ -19,7 +19,11 @@ export class UpdateContactComponent implements OnInit {
     errorMessage: any;
     show: boolean;
     errorFlagForAdd: boolean;
-    params: Params;
+    params1: Params;
+    queryparam1: string;
+    queryparam2: string;
+    fragmentValue: string;
+
     /**Form Variables */
     UpdateContactForm: FormGroup;
     mobnumPattern = '^((\\+91-?)|0)?[0-9]{10}$';
@@ -35,9 +39,18 @@ export class UpdateContactComponent implements OnInit {
         this.show = false;
         this.errorFlagForAdd = false;
         this.setUpdateContactForm();
+        this.route.fragment.forEach((fragment: any) => {
+            this.fragmentValue = fragment;
+        });
+        console.log(this.fragmentValue);
+        this.route.queryParams.forEach((queryParams: any) => {
+            this.queryparam1 = queryParams['param1'];
+            this.queryparam2 = queryParams['param2'];
+        });
+        console.log(this.queryparam1 + ' '  + this.queryparam2);
         this.route.params.forEach((params: Params) => {
-            this.params = params['id'];
-            this.getContactById(Number(this.params));
+            this.params1 = params['id'];
+            this.getContactById(Number(this.params1));
         });
     }
     setUpdateContactForm() {
