@@ -48,3 +48,4 @@ https://evolent-health.firebaseapp.com
 4. Login page, Sidebar and Navbar authentication
 5. Custom Pipe
 6. params, queryParams, fragment in update-contact.component.ts
+7. Resolve Gaurd

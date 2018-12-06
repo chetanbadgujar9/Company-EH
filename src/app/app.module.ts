@@ -23,12 +23,14 @@ import { DirectiveDemoComponent } from './directive-demo/directive-demo.componen
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { AuthServiceService } from './auth-service.service';
+import { UpdateContactResolver } from "./contact-list/update-contact/update-contact.resolver";
 
 // Interceptor
 import { MyInterceptor } from './my-interceptor';
 
 // Pipe
 import { SearchPipe } from './shared/pipe/search-pipe';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,7 @@ import { SearchPipe } from './shared/pipe/search-pipe';
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy },
   { provide: APP_BASE_HREF, useValue: '/' },
   { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },
-    ContactService, AuthGuard, AuthServiceService],
+    ContactService, AuthGuard, AuthServiceService, UpdateContactResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
