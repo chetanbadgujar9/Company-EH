@@ -49,3 +49,5 @@ https://evolent-health.firebaseapp.com
 5. Custom Pipe
 6. params, queryParams, fragment in update-contact.component.ts
 7. Resolve Gaurd
+8. Custom validation (Age)
+9. Multiple apps in single angular-cli.json file

@@ -1,7 +1,7 @@
 // Angular Dependencies
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { PlatformLocation } from '@angular/common';
 
 // Third party dependencies
@@ -55,10 +55,16 @@ export class AddContactComponent implements OnInit {
             LastName: ['', [Validators.required]],
             Email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
             PhoneNumber: ['', [Validators.required, Validators.pattern(this.mobnumPattern)]],
-            Status: ['Active']
+            Status: ['Active'],
+            Age: ['', [this.ageRangeValidator]]
         });
     }
-
+    ageRangeValidator(control: AbstractControl): {[key: string]: boolean } | null {
+        if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
+            return { 'ageRange': true };
+        }
+        return null;
+    }
     onAddContact({ value, valid }: { value: ContactList, valid: boolean }) {
         if (valid) {
             this.errorFlagForAdd = false;
