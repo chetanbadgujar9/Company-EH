@@ -49,3 +49,4 @@ https://evolent-health.firebaseapp.com
 5. Custom Pipe
 6. params, queryParams, fragment in update-contact.component.ts
 7. Resolve Gaurd
+8. Custom validation (form builder)

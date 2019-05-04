@@ -23,8 +23,8 @@ export class MyInterceptor implements HttpInterceptor {
                     }
                 },
                 error => {
-                    if (event instanceof HttpResponse) {
-                        console.log('api call error :', event);
+                    if (error instanceof HttpErrorResponse) {
+                        console.log('api call error :', error);
                     }
                 }
             )

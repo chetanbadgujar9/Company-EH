@@ -11,6 +11,8 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
+
 
 // Other Component
 import { AddContactComponent } from './contact-list/add-contact/add-contact.component';
@@ -48,6 +50,7 @@ import { SearchPipe } from './shared/pipe/search-pipe';
     HttpModule,
     BrowserModule,
     AppRoutingModule,
+    DateValueAccessorModule,
     SharedModule.forRoot()
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy },

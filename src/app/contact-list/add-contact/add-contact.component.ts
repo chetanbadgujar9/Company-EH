@@ -55,10 +55,30 @@ export class AddContactComponent implements OnInit {
             LastName: ['', [Validators.required]],
             Email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
             PhoneNumber: ['', [Validators.required, Validators.pattern(this.mobnumPattern)]],
-            Status: ['Active']
-        });
+            Status: ['Active'],
+            fromDate: ['', [Validators.required]],
+            toDate: [new Date(), [Validators.required]]
+        }, { validator: this.dateValidate('fromDate', 'toDate') });
     }
-
+    dateValidate(from: string, to: string) {
+        return (group: FormGroup): {[key: string]: any} => {
+            let f = group.controls[from].value;
+            let t = group.controls[to].value;
+            if (f > t) {
+              return {
+                dates: "Date from should be less than Date to"
+              };
+            }
+            if(t>new Date()){
+                return{
+                    dates:"To date should not be in future"
+                }
+            }
+            console.log(f);
+            console.log(t);
+            return {};
+          }
+    }
     onAddContact({ value, valid }: { value: ContactList, valid: boolean }) {
         if (valid) {
             this.errorFlagForAdd = false;
